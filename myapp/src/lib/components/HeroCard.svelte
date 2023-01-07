@@ -16,12 +16,14 @@
         background-position: center;
         background-size:cover;
         background-repeat: no-repeat;
+        opacity: 25%;
         
     }
 
     .main-container:hover {
         flex: none;
         width: 20vw;
+        opacity: 100%;
     }
 
     .main-container:hover > .main-container-inner{

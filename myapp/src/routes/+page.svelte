@@ -8,6 +8,9 @@
         {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
         {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
         {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
+        {path: '/images/apple.png', id:'4', article_link: 'www.google.com'},
+        {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
+        {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
         {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
     ]
 
@@ -114,7 +117,7 @@
         display: flex;
         flex-direction: row;
         width: 100vw;
-        height: 100%;
+        height: 100vh;
         background-color: black;
         background-image: url(/images/layered-waves-downwards2.svg);
         background-repeat: no-repeat;
