@@ -1,6 +1,6 @@
 <script>
     import { fade } from 'svelte/transition'
-    import ArticleCard from "$lib/components/ArticleCard.svelte";
+    import CatagoryCard from "$lib/components/CatagoryCard.svelte";
     import HeroCard from '../lib/components/HeroCard.svelte';
 
     const catagories = [
@@ -20,6 +20,8 @@
         {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
         {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
     ]
+
+    let currentArticle = -1
 
 </script>
 
@@ -246,21 +248,38 @@
 
     <div class="main-inner-layer grid">
         {#key currentCatagory}
+            {#if currentArticle == -1}
             <div class="main-hero" out:fade|local={{duration: 500}}>
-                <div class="inner-hero">
-                    {#each catagories as {path}}
-                        <HeroCard path={path}></HeroCard>
+                <div class="inner-hero" >
+                    {#each catagories as {path, id, article_link}}
+                        <HeroCard bind:currentArticle={currentArticle} path={path} id={id} article_link={article_link} currentCatagory={currentCatagory}></HeroCard>
                     {/each}
                 </div>
             </div>
+            {:else}
+            <div class="main-hero" out:fade|local={{duration: 500}}>
+                <div class="inner-hero">
+                    <div class="article-body">
+                        <div>
+                            {articles[currentArticle].id}
+                        </div>
+                        <!-- svelte-ignore a11y-click-events-have-key-events -->
+                        <div class="article-back-button" on:click={() => {currentArticle = -1}}>
+                            +--
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/if}
+
         {/key}
     </div>
 
     <div class="main-inner-layer grid">
-        <div class="main-catagory-list">
-            <div class="main-catagory-list-inner">
+        <div class="main-catagory-list" >
+            <div class="main-catagory-list-inner" >
                 {#each catagories as {path, id, catagory_link}}
-                    <ArticleCard bind:currentCatagory={currentCatagory} path={path} id={id} catagory_link={catagory_link} ></ArticleCard>
+                    <CatagoryCard bind:currentCatagory={currentCatagory} bind:currentArticle={currentArticle} path={path} id={id} catagory_link={catagory_link} ></CatagoryCard>
                 {/each}
             </div>        
         </div>

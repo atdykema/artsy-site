@@ -1,5 +1,5 @@
 <script>
-    export let path
+    export let path, id, article_link, currentArticle, currentCatagory
 </script>
 
 <style>
@@ -17,13 +17,11 @@
         background-size:cover;
         background-repeat: no-repeat;
         opacity: 25%;
-        border: 1px solid transparent;
     }
 
     .main-container:hover {
         flex: 3;
         opacity: 100%;
-        border: 1px solid whitesmoke;
     }
 
     .main-container:hover > .main-container-inner{
@@ -44,9 +42,10 @@
     
 </style>
 
-<div class="main-container" style="background-image: url({path});">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="main-container" style="background-image: url({path});" on:click={()=>{currentArticle = id}}>
     <div class="main-container-inner">
-        <h1>Title</h1>
+        <h1>current catagory: {currentCatagory}</h1>
         <div>blurb</div>
     </div>
     
