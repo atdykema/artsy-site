@@ -17,13 +17,13 @@
         background-size:cover;
         background-repeat: no-repeat;
         opacity: 25%;
-        
+        border: 1px solid transparent;
     }
 
     .main-container:hover {
-        flex: none;
-        width: 20vw;
+        flex: 3;
         opacity: 100%;
+        border: 1px solid whitesmoke;
     }
 
     .main-container:hover > .main-container-inner{

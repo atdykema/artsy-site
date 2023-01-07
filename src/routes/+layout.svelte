@@ -93,6 +93,7 @@
         align-items: center;
         grid-column-start: 3;
         grid-column-end: 6;
+        padding: 0;
     }
 
     .li-overlay{

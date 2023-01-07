@@ -1,5 +1,5 @@
 <script>
-    export let path, id, article_link, currentArticle
+    export let path, id, catagory_link, currentCatagory
 
 </script>
 
@@ -59,7 +59,7 @@
 
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="main-container" style="background-image: url({path}); {currentArticle == id ? "opacity: 100%; transform: translate(0%);" : ""}" on:click={()=>{currentArticle = id}} >
+<div class="main-container" style="background-image: url({path}); {currentCatagory == id ? "opacity: 100%; transform: translate(0%);" : ""}" on:click={()=>{currentCatagory = id}} >
     <div class="main-container-inner">
         <h1>Title</h1>
         <div>blurb</div>

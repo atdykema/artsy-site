@@ -3,15 +3,23 @@
     import ArticleCard from "$lib/components/ArticleCard.svelte";
     import HeroCard from '../lib/components/HeroCard.svelte';
 
-    const articles = [
-        {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
-        {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
-        {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-        {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-        {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
+    const catagories = [
+        {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
+        {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
+        {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
+        {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
+        {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
     ]
 
-    let currentArticle = 0
+    let currentCatagory = 0
+
+    const articles = [
+        {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
+        {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
+        {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
+        {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
+        {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
+    ]
 
 </script>
 
@@ -75,7 +83,7 @@
         border: 1px solid transparent;
     }
 
-    .main-article-list{
+    .main-catagory-list{
         display: flex;
         flex-direction: column;
         grid-column: span 3;
@@ -84,7 +92,7 @@
         z-index: 101;
     }
 
-    .main-article-list-inner{
+    .main-catagory-list-inner{
         display: block;
         height: 80vh;
         overflow-y: scroll;
@@ -186,13 +194,13 @@
             margin-top: 10vh;
         }
 
-        .main-article-list{
+        .main-catagory-list{
             width: 100%;
             overflow-x: hidden;
             height: 100%;
         }
 
-        .main-article-list-inner{
+        .main-catagory-list-inner{
             overflow-y: visible;
         }
 
@@ -230,19 +238,17 @@
 
 <div class="main-hero-container">
 
-    {#key currentArticle}
-        <div class="main-inner" style="background-image: url({articles[currentArticle].path});" in:fade|local={ {duration: 1000, delay: 1500}} out:fade|local={ {duration: 1000, delay: 500}}></div>
+    {#key currentCatagory}
+        <div class="main-inner" style="background-image: url({catagories[currentCatagory].path});" in:fade|local={ {duration: 1000, delay: 1500}} out:fade|local={ {duration: 1000, delay: 500}}></div>
     {/key}
 
     <div class="main-inner-mask"></div>
 
     <div class="main-inner-layer grid">
-        {#key currentArticle}
+        {#key currentCatagory}
             <div class="main-hero" out:fade|local={{duration: 500}}>
                 <div class="inner-hero">
-                    {#each articles as {path}}
-                        <HeroCard path={path}></HeroCard>
-                        <HeroCard path={path}></HeroCard>
+                    {#each catagories as {path}}
                         <HeroCard path={path}></HeroCard>
                     {/each}
                 </div>
@@ -251,10 +257,10 @@
     </div>
 
     <div class="main-inner-layer grid">
-        <div class="main-article-list">
-            <div class="main-article-list-inner">
-                {#each articles as {path, id, article_link}}
-                    <ArticleCard bind:currentArticle={currentArticle} path={path} id={id} article_link={article_link} ></ArticleCard>
+        <div class="main-catagory-list">
+            <div class="main-catagory-list-inner">
+                {#each catagories as {path, id, catagory_link}}
+                    <ArticleCard bind:currentCatagory={currentCatagory} path={path} id={id} catagory_link={catagory_link} ></ArticleCard>
                 {/each}
             </div>        
         </div>
