@@ -8,9 +8,6 @@
         {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
         {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
         {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-        {path: '/images/apple.png', id:'4', article_link: 'www.google.com'},
-        {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-        {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
         {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
     ]
 
@@ -23,6 +20,7 @@
     *{
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
+        overflow-x: hidden; /* Hide horizontal scrollbar */
     }
 
     /* Hide scrollbar for Chrome, Safari and Opera */
@@ -65,15 +63,15 @@
         background-size: cover;
         grid-column-start: 4;
         grid-column-end: 12;
-        grid-row-start: 3;
-        grid-row-end: 11;
+        grid-row-start: 2;
+        grid-row-end: 12;
         -webkit-backdrop-filter: blur(8px);  /* Safari 9+ */
         backdrop-filter: blur(8px); /* Chrome and Opera */
-        box-shadow: 0px 10px 15px 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 10px 15px 10px rgba(0, 0, 0, 0.35);
         background-color: rgba(0, 0, 0, 0.15); 
         animation: ani 3s;
         color: white;
-        z-index: 102;
+        z-index: 100;
         border: 1px solid transparent;
     }
 
@@ -81,6 +79,8 @@
         display: flex;
         flex-direction: column;
         grid-column: span 3;
+        grid-row-start: 2;
+        grid-row-end: 12;
         z-index: 101;
     }
 
@@ -107,26 +107,22 @@
     }
 
     .main-inner-mask{
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        max-width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+        background: none;
+        justify-content: center;
+        align-content: center;
         background: rgb(0,0,0);
         background: -moz-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5046219171262255) 50%, rgba(0,0,0,1) 100%);
         background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5046219171262255) 50%, rgba(0,0,0,1) 100%);
         background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5046219171262255) 50%, rgba(0,0,0,1) 100%);
-    }
-
-    .main-body-container{
-        display: flex;
-        flex-direction: row;
-        width: 100vw;
-        height: 100vh;
-        background-color: black;
-        background-image: url(/images/layered-waves-downwards2.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        
-    }
-
-    .main-body{
-        display: flex;
     }
 
     .grid{
@@ -181,6 +177,54 @@
         }
     }
 
+    @media screen and (max-width: 900px){
+        .main-inner-layer{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            position: relative;
+            margin-top: 10vh;
+        }
+
+        .main-article-list{
+            width: 100%;
+            overflow-x: hidden;
+            height: 100%;
+        }
+
+        .main-article-list-inner{
+            overflow-y: visible;
+        }
+
+        @keyframes ani {
+        0%{
+            box-shadow: none;
+            border: transparent 1px solid;
+            width: 0px;
+            height: 0px;
+        }
+        25%{
+            width: 1px;
+            height: 100%;
+        }
+        50%{
+            width: 100%;
+            height: 100%;
+        }
+        75%{
+            height: 100%;
+            width: 100%;
+            border: transparent 1px solid;
+        }
+        100%{
+            border: transparent 1px solid;
+            box-shadow: none;
+        }
+    }
+
+        
+    }
+
 
 </style>
 
@@ -190,7 +234,7 @@
         <div class="main-inner" style="background-image: url({articles[currentArticle].path});" in:fade|local={ {duration: 1000, delay: 1500}} out:fade|local={ {duration: 1000, delay: 500}}></div>
     {/key}
 
-    <div class="main-inner-layer main-inner-mask"></div>
+    <div class="main-inner-mask"></div>
 
     <div class="main-inner-layer grid">
         {#key currentArticle}
@@ -206,7 +250,7 @@
         {/key}
     </div>
 
-    <div class="main-inner-layer">
+    <div class="main-inner-layer grid">
         <div class="main-article-list">
             <div class="main-article-list-inner">
                 {#each articles as {path, id, article_link}}
@@ -215,11 +259,7 @@
             </div>        
         </div>
     </div>
+
+    
 </div>
 
-<div class="main-body-container">
-    <div class="main-body">
-        
-    </div>
-
-</div>

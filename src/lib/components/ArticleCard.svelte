@@ -46,6 +46,14 @@
         background-color: rgba(0, 0, 0, .5);
     }
 
+    @media screen and (max-width: 900px){
+        .main-container{
+            width: 100%;
+        }
+
+        
+    }
+
 
 </style>
 

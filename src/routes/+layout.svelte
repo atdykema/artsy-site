@@ -11,6 +11,14 @@
 
     *{
         font-family: main-font;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    *::-webkit-scrollbar {
+        display: none;
     }
 
     a{
@@ -51,21 +59,19 @@
     }
 
     .main-nav-container{
-        display: flex;
+        position: absolute;
         align-items: center;
         justify-content: center;
         top: 0;
         left: 0;
         padding: 0;
-        position: fixed;
         width: 100%;
         height: 10vh;
-        z-index: 100;
-        font-size: 1.5rem;
+        z-index: 103;
+        font-size: 2rem;
     }
 
     .main-nav-container:hover > .main-nav-body{
-        height: 10vh;
         opacity: 75%;
         transition: .5s ease-in-out;
     }
@@ -76,17 +82,8 @@
         grid-template-columns: repeat(5, 1fr);
         width: 100%;
         color: whitesmoke;
-        height: 0;
+        height: 10vh;
         transition: .5s ease-in-out;
-    }
-
-    .nav-logo{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-        grid-column-start: 0;
-        grid-column-end: 2;
     }
 
     .nav-links{
@@ -96,7 +93,6 @@
         align-items: center;
         grid-column-start: 3;
         grid-column-end: 6;
-        padding: 0;
     }
 
     .li-overlay{
@@ -112,6 +108,25 @@
         white-space: nowrap;
         overflow: hidden;
         /**/
+    }
+
+    @media screen and (max-width: 900px){
+
+        .main-nav-body{
+            opacity: 75%;
+        }
+
+        .nav-links{
+            grid-column-start: 1;
+            grid-column-end: 6;
+        }
+    }
+
+    @media screen and (max-height: 900px){
+
+        .nav-links{
+            font-size: 1rem;
+        }
     }
 
     @keyframes fadeOut{
@@ -137,9 +152,6 @@
 <div class="main-container">
     <div class="main-nav-container">
         <div class="main-nav-body" transition:fade|local={{duration: 500}}>
-            <div class="nav-logo">
-                logo
-            </div>
             <ul class="nav-links">
                 <div class="nav-item">
                     <div class="li-overlay">Promos</div>
