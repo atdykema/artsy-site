@@ -30,7 +30,6 @@
         color: whitesmoke;
         opacity: 100%;
         transform: translate(0%);
-        filter: blur(0px);
     }
 
     .main-container-inner{

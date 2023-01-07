@@ -33,6 +33,7 @@
         width: 100vw;
         height: 100vh;
         overflow-x: hidden;
+        
     }
 
     .main-inner{
@@ -48,6 +49,8 @@
         justify-content: center;
         transition: .5s ease-in-out;
         align-items: center;
+        
+        
     }
 
     .main-hero{
@@ -68,6 +71,7 @@
         animation: ani 3s;
         color: white;
         z-index: 102;
+        border: 1px solid transparent;
     }
 
     .main-article-list{
@@ -115,6 +119,7 @@
         background-image: url(/images/layered-waves-downwards2.svg);
         background-repeat: no-repeat;
         background-size: cover;
+        
     }
 
     .main-body{
@@ -129,10 +134,11 @@
 
     .inner-hero{
         display: flex;
-        animation: afterAni 3s;
+        animation: afterAni 2s;
         width: 100%;
         height: 100%;
         overflow-x: scroll;
+        
     }
 
     @keyframes ani {
@@ -162,9 +168,12 @@
     @keyframes afterAni{
         0%{
             opacity: 0%;
-        }80%{
+            height: 0;
+        }50%{
             opacity: 0%;
+            height: 0;
         }100%{
+            height: 100%;
             opacity: 100%;
         }
     }

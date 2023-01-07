@@ -16,11 +16,28 @@
     a{
         text-decoration: none;
         color: whitesmoke;
+        animation: fadeIn .25s ease-in-out;
+        width: 100%;
+        height: 100%;
     }
 
-    li{
+    .nav-item:hover > a{
+        animation: fadeOut .25s ease-in-out;
+        opacity: 50%;
+    }
+
+    .nav-item:hover > .li-overlay{
+        opacity: 50%;
+        transform: translate(0%);
+    }
+
+    .nav-item{
         text-decoration: none;
         list-style: none;
+        display: flex;
+        overflow: hidden;
+        justify-content: center;
+        align-items: flex-end;
     }
 
     .main-container{
@@ -58,7 +75,7 @@
         opacity: 0;
         grid-template-columns: repeat(5, 1fr);
         width: 100%;
-        color: azure;
+        color: whitesmoke;
         height: 0;
         transition: .5s ease-in-out;
     }
@@ -82,6 +99,35 @@
         padding: 0;
     }
 
+    .li-overlay{
+        position: absolute;
+        opacity: 0%;
+        height: 0;
+        background-color: rgb(51, 51, 51);
+        transition: .25s ease-in-out;
+        transform: translate(-50px);
+        color: transparent;
+        padding: 1px;
+    }
+
+    @keyframes fadeOut{
+        0%{
+            opacity: 100%;
+        }
+        100%{
+            opacity: 50%;
+        }
+    }
+
+    @keyframes fadeIn{
+        0%{
+            opacity: 50%;
+        }
+        100%{
+            opacity: 100%; 
+        }
+    }
+
 </style>
 
 <div class="main-container">
@@ -91,15 +137,18 @@
                 logo
             </div>
             <ul class="nav-links">
-                <li>
+                <div class="nav-item">
+                    <div class="li-overlay">Promos</div>
                     <a href="">Promos</a>
-                </li>
-                <li>
+                </div>
+                <div class="nav-item">
+                    <div class="li-overlay">New Arrivals</div>
                     <a href="">New Arrivals</a>
-                </li>
-                <li>
+                </div>
+                <div class="nav-item">
+                    <div class="li-overlay">About</div>
                     <a href="">About</a>
-                </li>
+                </div>
             </ul>
         </div>
         
