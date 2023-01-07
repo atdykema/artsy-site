@@ -1,0 +1,61 @@
+<script>
+    export let path, id, article_link, currentArticle
+
+</script>
+
+<style>
+
+    .main-container{
+        height: 30%;
+        max-height: 30%;
+        width: 80%;
+        display: flex;
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: 1px solid transparent;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        transition: .25s ease-in-out;
+        flex-direction: column;
+        color: transparent;
+        opacity: 25%;
+        transform: translate(-25%);
+        
+    }
+
+    .main-container:hover{
+        border-color: white;
+        color: whitesmoke;
+        opacity: 100%;
+        transform: translate(0%);
+        filter: blur(0px);
+    }
+
+    .main-container-inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        transition: .25s ease-in-out;
+    }
+
+    .main-container-inner:hover{
+        background-color: rgba(0, 0, 0, .5);
+    }
+
+
+</style>
+
+
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="main-container" style="background-image: url({path}); {currentArticle == id ? "opacity: 100%; transform: translate(0%);" : ""}" on:click={()=>{currentArticle = id}} >
+    <div class="main-container-inner">
+        <h1>Title</h1>
+        <div>blurb</div>
+    </div>
+    
+</div>
