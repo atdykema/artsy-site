@@ -15,11 +15,11 @@
 
     const articles = {
         0: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
+            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"},
+            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/4d0nnBfxKBJt3evaV4Yssh?utm_source=generator"},
+            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"},
+            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"},
+            {path: '/images/apple.png', id:'4', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"}
         ],
         1: [
             {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
@@ -293,6 +293,7 @@
             <div class="main-hero" out:fade|local={{duration: 500}}>
                 <div class="inner-hero">
                     <div class="article-body">
+                        <iframe style="border-radius:12px" title="spotify embed" src={articles[currentCatagory][currentArticle].embed_link} width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                         <div>
                             {articles[currentCatagory][currentArticle].id}
                         </div>
