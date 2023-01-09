@@ -1,5 +1,5 @@
 <script>
-    export let path, id, article_link, currentArticle, currentCatagory
+    export let currentArticle, currentCatagory, path, id, article_link
 </script>
 
 <style>
@@ -46,6 +46,7 @@
 <div class="main-container" style="background-image: url({path});" on:click={()=>{currentArticle = id}}>
     <div class="main-container-inner">
         <h1>current catagory: {currentCatagory}</h1>
+        <h1>current article: {currentArticle}</h1>
         <div>blurb</div>
     </div>
     

@@ -13,48 +13,44 @@
 
     let currentCatagory = 0
 
-    const articles = [
-        {catagory: '0',
-        data: [
-            {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
-        ]},
-        {catagory: '1',
-        data: [
-            {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
-        ]},
-        {catagory: '2',
-        data: [
-            {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
-        ]},
-        {catagory: '3',
-        data: [
-            {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
-        ]},
-        {catagory: '4',
-        data: [
-            {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
-        ]}
-    ]
+    const articles = {
+        0: [
+            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
+            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
+            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
+            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
+            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
+        ],
+        1: [
+            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
+            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
+            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
+            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
+            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
+        ],
+        2: [
+            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
+            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
+            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
+            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
+            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
+        ],
+        3: [
+            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
+            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
+            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
+            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
+            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
+        ],
+        4: [
+            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
+            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
+            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
+            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
+            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
+        ],
+
+    }
 
     let currentArticle = -1
 
@@ -288,8 +284,8 @@
             {#if currentArticle == -1}
             <div class="main-hero" out:fade|local={{duration: 500}}>
                 <div class="inner-hero" >
-                    {#each articles as {path, id, article_link}}
-                        <HeroCard bind:currentArticle={currentArticle} path={path} id={id} article_link={article_link} currentCatagory={currentCatagory}></HeroCard>
+                    {#each articles[currentCatagory] as {path, id, article_link}}
+                        <HeroCard bind:currentArticle={currentArticle} currentCatagory={currentCatagory} path={path} id={id} article_link={article_link}></HeroCard>
                     {/each}
                 </div>
             </div>
@@ -298,7 +294,7 @@
                 <div class="inner-hero">
                     <div class="article-body">
                         <div>
-                            {articles[currentArticle].id}
+                            {articles[currentCatagory][currentArticle].id}
                         </div>
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <div class="article-back-button" on:click={() => {currentArticle = -1}}>
