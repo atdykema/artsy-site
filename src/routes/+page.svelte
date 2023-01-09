@@ -246,8 +246,10 @@
 
     <div class="main-inner-mask"></div>
 
+    
     <div class="main-inner-layer grid">
         {#key currentCatagory}
+        <div class="main-inner-layer grid" out:fade|local={{duration: 500}}>
             {#if currentArticle == -1}
             <div class="main-hero" out:fade|local={{duration: 500}}>
                 <div class="inner-hero" >
@@ -271,7 +273,7 @@
                 </div>
             </div>
             {/if}
-
+        </div>
         {/key}
     </div>
 
