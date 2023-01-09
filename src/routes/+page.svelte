@@ -14,11 +14,46 @@
     let currentCatagory = 0
 
     const articles = [
-        {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
-        {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
-        {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
-        {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
-        {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
+        {catagory: '0',
+        data: [
+            {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
+            {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
+            {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
+            {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
+            {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
+        ]},
+        {catagory: '1',
+        data: [
+            {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
+            {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
+            {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
+            {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
+            {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
+        ]},
+        {catagory: '2',
+        data: [
+            {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
+            {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
+            {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
+            {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
+            {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
+        ]},
+        {catagory: '3',
+        data: [
+            {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
+            {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
+            {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
+            {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
+            {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
+        ]},
+        {catagory: '4',
+        data: [
+            {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
+            {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
+            {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
+            {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
+            {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
+        ]}
     ]
 
     let currentArticle = -1
@@ -253,7 +288,7 @@
             {#if currentArticle == -1}
             <div class="main-hero" out:fade|local={{duration: 500}}>
                 <div class="inner-hero" >
-                    {#each catagories as {path, id, article_link}}
+                    {#each articles as {path, id, article_link}}
                         <HeroCard bind:currentArticle={currentArticle} path={path} id={id} article_link={article_link} currentCatagory={currentCatagory}></HeroCard>
                     {/each}
                 </div>
