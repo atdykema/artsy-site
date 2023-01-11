@@ -1,5 +1,5 @@
 <script>
-    export let path, id, catagory_link, currentCatagory, currentArticle
+    export let id, path, title, currentCatagory, currentArticle
 
 </script>
 
@@ -22,6 +22,7 @@
         color: transparent;
         opacity: 25%;
         transform: translate(-25%);
+        background-position: center;
         
     }
 
@@ -30,6 +31,7 @@
         color: whitesmoke;
         opacity: 100%;
         transform: translate(0%);
+
     }
 
     .main-container-inner{
@@ -46,6 +48,36 @@
         background-color: rgba(0, 0, 0, .5);
     }
 
+    .li-overlay{
+        position: absolute;
+        opacity: 0%;
+        left: 12.5%;
+        height: 2rem;
+        width: 75%;
+        transition: .5s ease;
+        transform: translate(-100%);
+        color: transparent;
+        padding: 1px;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        z-index: -1;
+        background-position: center;
+        /**/
+    }
+
+    .title-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .main-container-inner:hover > .title-container > .li-overlay{
+        opacity: 90%;
+        transform: translate(0%);
+    }
+
     @media screen and (max-width: 900px){
         .main-container{
             width: 100%;
@@ -59,10 +91,13 @@
 
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="main-container" style="background-image: url({path}); {currentCatagory == id ? "opacity: 100%; transform: translate(0%);" : ""}" on:click={()=>{currentCatagory = id; currentArticle = -1;}} >
+<div class="main-container" style="background-image: url({path}); {currentCatagory == id ? "opacity: 100%; transform: translate(0%);" : ""}" on:click={()=>{currentCatagory = id; currentArticle = -1 * Math.random();}} >
     <div class="main-container-inner">
-        <h1>{id}</h1>
-        <div>blurb</div>
+        <div class="title-container">
+            
+            <div class="li-overlay" style="background-image: url({path})">{title}</div>
+            <h1 >{title}</h1>
+        </div>
     </div>
     
 </div>

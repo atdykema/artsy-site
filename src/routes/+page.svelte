@@ -1,58 +1,17 @@
 <script>
     import { fade } from 'svelte/transition'
     import CatagoryCard from "$lib/components/CatagoryCard.svelte";
-    import HeroCard from '../lib/components/HeroCard.svelte';
 
     const catagories = [
-        {path: '/images/quantum.jpg', id:'0', catagory_link: 'www.google.com'},
-        {path: '/images/earth.jpg', id:'1', catagory_link: 'www.google.com'},
-        {path: '/images/milky-way.png', id:'2', catagory_link: 'www.google.com'},
-        {path: '/images/mountains.jpg', id:'3', catagory_link: 'www.google.com'},
-        {path: '/images/apple.png', id:'4', catagory_link: 'www.google.com'}
+        {id:'0', path: '/images/IMG_2600.jpg', title: 'WHAT'},
+        {id:'1', path: '/images/IMG_0179-transformed.jpeg', title: 'IS'},
+        {id:'2', path: '/images/IMG_7668.jpg', title: 'IT'},
+        {id:'3', path: '/images/IMG_1507.JPEG', title: 'ALL'},
+        {id:'4', path: '/images/IMG_2051.jpg', title: 'FOR?'}
     ]
 
     let currentCatagory = 0
 
-    const articles = {
-        0: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/4d0nnBfxKBJt3evaV4Yssh?utm_source=generator"},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"}
-        ],
-        1: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
-        ],
-        2: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
-        ],
-        3: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
-        ],
-        4: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
-        ],
-
-    }
-
-    let currentArticle = -1
 
 </script>
 
@@ -281,30 +240,11 @@
     <div class="main-inner-layer grid">
         {#key currentCatagory}
         <div class="main-inner-layer grid" out:fade|local={{duration: 500}}>
-            {#if currentArticle == -1}
             <div class="main-hero" out:fade|local={{duration: 500}}>
                 <div class="inner-hero" >
-                    {#each articles[currentCatagory] as {path, id, article_link}}
-                        <HeroCard bind:currentArticle={currentArticle} currentCatagory={currentCatagory} path={path} id={id} article_link={article_link}></HeroCard>
-                    {/each}
+                    
                 </div>
             </div>
-            {:else}
-            <div class="main-hero" out:fade|local={{duration: 500}}>
-                <div class="inner-hero">
-                    <div class="article-body">
-                        <iframe style="border-radius:12px" title="spotify embed" src={articles[currentCatagory][currentArticle].embed_link} width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                        <div>
-                            {articles[currentCatagory][currentArticle].id}
-                        </div>
-                        <!-- svelte-ignore a11y-click-events-have-key-events -->
-                        <div class="article-back-button" on:click={() => {currentArticle = -1}}>
-                            +--
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/if}
         </div>
         {/key}
     </div>
@@ -312,8 +252,8 @@
     <div class="main-inner-layer grid">
         <div class="main-catagory-list" >
             <div class="main-catagory-list-inner" >
-                {#each catagories as {path, id, catagory_link}}
-                    <CatagoryCard bind:currentCatagory={currentCatagory} bind:currentArticle={currentArticle} path={path} id={id} catagory_link={catagory_link} ></CatagoryCard>
+                {#each catagories as {id, path, title}}
+                    <CatagoryCard bind:currentCatagory={currentCatagory} id={id} title={title} path={path}></CatagoryCard>
                 {/each}
             </div>        
         </div>
@@ -321,4 +261,3 @@
 
     
 </div>
-

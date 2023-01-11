@@ -155,22 +155,26 @@
         <div class="main-nav-body" transition:fade|local={{duration: 500}}>
             <ul class="nav-links">
                 <div class="nav-item">
-                    <div class="li-overlay">Promos</div>
-                    <a href="">Promos</a>
+                    <div class="li-overlay">Introduction</div>
+                    <a href="/">Introduction</a>
                 </div>
                 <div class="nav-item">
-                    <div class="li-overlay">New Arrivals</div>
-                    <a href="">New Arrivals</a>
+                    <div class="li-overlay">Music</div>
+                    <a href="/music">Music</a>
                 </div>
                 <div class="nav-item">
-                    <div class="li-overlay">About</div>
-                    <a href="">About</a>
+                    <div class="li-overlay">Film</div>
+                    <a href="">Film</a>
+                </div>
+                <div class="nav-item">
+                    <div class="li-overlay">Projects</div>
+                    <a href="">Projects</a>
                 </div>
             </ul>
         </div>
         
     </div>
     
-    <slot></slot>
+    <slot ></slot>
 
 </div>
