@@ -156,19 +156,19 @@
             <ul class="nav-links">
                 <div class="nav-item">
                     <div class="li-overlay">Introduction</div>
-                    <a href="/">Introduction</a>
+                    <a href="/artsy-site/">Introduction</a>
                 </div>
                 <div class="nav-item">
                     <div class="li-overlay">Projects</div>
-                    <a href="/projects">Projects</a>
+                    <a href="/artsy-site/projects">Projects</a>
                 </div>
                 <div class="nav-item">
                     <div class="li-overlay">Film</div>
-                    <a href="/film">Film</a>
+                    <a href="/artsy-site/film">Film</a>
                 </div>
                 <div class="nav-item">
                     <div class="li-overlay">Music</div>
-                    <a href="/music">Music</a>
+                    <a href="/artsy-site/music">Music</a>
                 </div>
             </ul>
         </div>

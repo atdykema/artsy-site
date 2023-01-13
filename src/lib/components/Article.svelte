@@ -1,5 +1,6 @@
 <script>
-    export let id, path, data, currentArticle
+    //export let id, path, data, currentArticle
+    export let data, currentArticle
 
 </script>
 
@@ -113,7 +114,7 @@
     </div>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="article-back-button" on:click={() => {currentArticle = -1 * Math.random()}}>
-        <img class="back-button" src="/images/arrow.png" width="25" length="200">
+        <img class="back-button" alt="back-button" src="/images/arrow.png" width="25" length="200">
     </div>
     
 </div>

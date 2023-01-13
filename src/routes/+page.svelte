@@ -3,11 +3,7 @@
     import CatagoryCard from "$lib/components/CatagoryCard.svelte";
 
     const catagories = [
-        {id:'0', path: '/images/IMG_2600.jpg', title: 'WHAT'},
-        {id:'1', path: '/images/IMG_0179-transformed.jpeg', title: 'IS'},
-        {id:'2', path: '/images/IMG_7668.jpg', title: 'IT'},
-        {id:'3', path: '/images/IMG_1507.JPEG', title: 'ALL'},
-        {id:'4', path: '/images/IMG_2051.jpg', title: 'FOR?'}
+        {id:'4', path: '/images/IMG_2051.jpg', title: 'Hi there'}
     ]
 
     let currentCatagory = 0
@@ -255,8 +251,34 @@
         {#key currentCatagory}
         <div class="main-inner-layer grid" out:fade|local={{duration: 500}}>
             <div class="main-hero" out:fade|local={{duration: 500}}>
-                <div class="inner-hero" >
-                    
+                <div class="inner-hero" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 90%; text-align: center; font-size: 3rem;" >
+                    <div >
+                        Welcome to my website!
+                    </div>
+                    <br>
+                    <div >
+                        My name is Drew
+                    </div>
+                    <br>
+                    <div >
+                        The rest of the site isn't this boring, I promise.
+                    </div>
+                    <br>
+                    <div >
+                        This is just the part with the necessary salutory gestures 
+                    </div>
+                    <br>
+                    <div >
+                        Up in the nav bar you'll find some links to some of the stuff I've done and things I like 
+                    </div>
+                    <br>
+                    <div >
+                        Look around and have fun!
+                    </div>
+                    <br>
+                    <div >
+                        Also, this is a work in progress so there's ever more to come!
+                    </div>
                 </div>
             </div>
         </div>
