@@ -68,30 +68,21 @@
     }
     
     .back-button{
-        animation: blink 5s infinite;
-        opacity: 0%;
-    }
-
-    .back-button:hover{
-        -webkit-filter: invert(80%); /* Safari/Chrome */
+        opacity: 50%;
         filter: invert(80%);
+        -webkit-filter: invert(80%); /* Safari/Chrome */
+        transition: .25s ease-in-out;
+    }
+
+    .article-back-button:hover > .back-button{
+        -webkit-filter: invert(100%); /* Safari/Chrome */
+        filter: invert(100%);
+        opacity: 100%;
+        transition: .25s ease-in-out;
 
     }
 
-    @keyframes blink{
-        0%{
-            filter:invert(0%);
-            opacity: 0%;
-        }
-        50%{
-            filter:invert(80%);
-            opacity: 75%;
-        }
-        100%{
-            filter:invert(0%);
-            opacity: 0%;
-        }
-    }
+    
 
 </style>
 
