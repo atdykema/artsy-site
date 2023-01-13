@@ -1,8 +1,13 @@
 <script>
-    export let currentArticle, currentCatagory, path, id, article_link
+    export let currentArticle, id, path, data
 </script>
 
 <style>
+
+    *{
+        text-align: center;
+    }
+    
     .main-container{
         flex: 1;
         height: 100%;
@@ -45,9 +50,9 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="main-container" style="background-image: url({path});" on:click={()=>{currentArticle = id}}>
     <div class="main-container-inner">
-        <h1>current catagory: {currentCatagory}</h1>
-        <h1>current article: {currentArticle}</h1>
-        <div>blurb</div>
+        <h1>{data.title}</h1>
+        <h2>{data.artist}</h2>
+        <div>{data.album}</div>
     </div>
     
 </div>

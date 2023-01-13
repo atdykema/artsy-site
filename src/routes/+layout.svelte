@@ -159,16 +159,16 @@
                     <a href="/">Introduction</a>
                 </div>
                 <div class="nav-item">
-                    <div class="li-overlay">Music</div>
-                    <a href="/music">Music</a>
+                    <div class="li-overlay">Projects</div>
+                    <a href="/projects">Projects</a>
                 </div>
                 <div class="nav-item">
                     <div class="li-overlay">Film</div>
-                    <a href="">Film</a>
+                    <a href="/film">Film</a>
                 </div>
                 <div class="nav-item">
-                    <div class="li-overlay">Projects</div>
-                    <a href="">Projects</a>
+                    <div class="li-overlay">Music</div>
+                    <a href="/music">Music</a>
                 </div>
             </ul>
         </div>

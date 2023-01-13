@@ -34,6 +34,7 @@
         width: 100vw;
         height: 100vh;
         overflow-x: hidden;
+        animation: fallIn 2s;
         
     }
 
@@ -82,6 +83,7 @@
         grid-row-start: 2;
         grid-row-end: 12;
         z-index: 101;
+        animation: fallIn 3s;
     }
 
     .main-catagory-list-inner{
@@ -173,6 +175,18 @@
             height: 0;
         }100%{
             height: 100%;
+            opacity: 100%;
+        }
+    }
+
+    @keyframes fallIn{
+        0%{
+            opacity: 0%;
+        }
+        50%{
+            opacity: 0%;
+        }
+        100%{
             opacity: 100%;
         }
     }

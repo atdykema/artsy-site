@@ -2,55 +2,190 @@
     import { fade } from 'svelte/transition'
     import CatagoryCard from "$lib/components/CatagoryCard.svelte";
     import HeroCard from '$lib/components/HeroCard.svelte';
+    import Article from '$lib/components/Article.svelte';
 
     const catagories = [
-        {id:'0', path: '/images/the-marias-transformed.jpeg', title: 'The Marias'},
-        {id:'1', path: '/images/makoto-matsushita-transformed.jpeg', title: 'Makoto Matsushita'},
-        {id:'2', path: '/images/anri-transformed.png', title: 'Anri'},
-        {id:'3', path: '/images/kirinji-transformed.jpeg', title: 'Kirinji'},
-        {id:'4', path: '/images/casiopea-transformed.jpeg', title: 'Casiopea'}
+        {id:'0', path: '/images/rex-orange-county.jpg', title: 'Top 10'}
+
     ]
 
     let currentCatagory = 0
 
     const articles = {
         0: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/track/2aaOJJd2fBkd4es7vI2h2a?utm_source=generator"},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com', embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"}
+            {id:'0', path: '/images/frank-ocean.jpg', data: 
+                {
+                title: "Nikes", 
+                artist: "Frank Ocean", 
+                album: "Blonde", 
+                embed_link: "https://open.spotify.com/embed/track/19YKaevk2bce4odJkP5L22?utm_source=generator",
+                desc: "“Nikes” is a critique of the trappings of materialistic hedonism, with a frequent mention of Nike shoes, shiny gold and glitter, and fantasies of pleasure. The video version of this song features two competing voices (the album version does not), adding a sense of tension and conflict to the otherwise dreamy music. The song was the lead single from Frank Ocean’s highly anticipated third album, Blonde. It was released the day after his visual album Endless on Apple Music. The video is highly stylized and features race cars, nudity, immolation, partying and a devil.",
+                desc_link: "2841610",
+                genius_link: "https://genius.com/Frank-ocean-nikes-lyrics"
+                }
+                
+            },
+            {id:'1', path: '/images/positions-ariana-grande.png', data: 
+                {
+                title: "Worst Behavior", 
+                artist: "Ariana Grande", 
+                album: "Positions", 
+                embed_link: "https://open.spotify.com/embed/track/6KIKaWKE9wV6mLjho3w61y?utm_source=generator",
+                desc: "",
+                desc_link: "6446041",
+                genius_link: "https://genius.com/Ariana-grande-worst-behavior-lyrics"
+                }
+                
+            },
+            {id:'2', path: '/images/gorillaz.webp', data: 
+                {
+                title: "Sleeping Powder", 
+                artist: "Gorillaz", 
+                album: "Sleeping Powder", 
+                embed_link: "https://open.spotify.com/embed/track/5pE9vMyvVNOpZFutt6lyy4?utm_source=generator",
+                desc: "“Sleeping Powder” is about 2-D’s drug addiction. In the Gorillaz backstory, 2-D suffered a number of head injuries—in fact, he earned the name 2-D in Phase 1 because of the two dents in his head that formed when Murdoc hit him with his car. 2-D’s head trauma later caused him to become addicted to painkillers. The song was exclusively released through the Gorillaz app as a part of Phase 4 on June 8, 2017, but the music video appeared online the same day. According to Damon Albarn during a Gorillaz concert on June 8th, 2017, “Sleeping Powder” was written as a response to a portion of Gorillaz fans that complained about the lowered emphasis of 2D on their fifth studio album Humanz.",
+                desc_link: "",
+                genius_link: ""
+                }
+                
+            },
+            {id:'3', path: '/images/the-marias.jpeg', data: 
+                {
+                title: "The Mice Inside This Room", 
+                artist: "The Marias", 
+                album: "CINEMA", 
+                embed_link: "https://open.spotify.com/embed/track/3Mqx9OWTEhBEeOEuUDklei?utm_source=generator",
+                desc: "",
+                desc_link: "",
+                genius_link: ""
+                }
+                
+            },
+            {id:'4', path: '/images/kirinji.jpeg', data: 
+                {
+                title: "Jikanga Nai", 
+                artist: "Kirinji", 
+                album: "Aiwo Arudake, Subete", 
+                embed_link: "https://open.spotify.com/embed/track/4X6jKZPHkKLbrcEZu13VXK?utm_source=generator",
+                desc: "",
+                desc_link: "",
+                genius_link: ""
+                }
+                
+            },
+            
+            {id:'5', path: '/images/casiopea.jpg', data: 
+                {
+                title: "Domino Line", 
+                artist: "CASIOPEA", 
+                album: "Mint Jams", 
+                embed_link: "https://open.spotify.com/embed/track/1y76Hl0nXEOYBf4C9rl5rf?utm_source=generator",
+                desc: "",
+                desc_link: "",
+                genius_link: ""
+                }
+                
+                
+            },
+            {id:'6', path: '/images/los-retros.jpg', data: 
+                {
+                title: "Solo Tú", 
+                artist: "Los Retros", 
+                album: "Solo Tú", 
+                embed_link: "https://open.spotify.com/embed/track/6YbMkGhGkadLWnt2lIuHSz?utm_source=generator",
+                desc: "",
+                desc_link: "",
+                genius_link: ""
+                }
+                
+                
+            },
+            {id:'7', path: '/images/rex-orange-county-transformed.jpeg', data: 
+                {
+                title: "Happiness", 
+                artist: "Rex Orange County", 
+                album: "Apricot Princess", 
+                embed_link: "https://open.spotify.com/embed/track/7aSyG7cskkG3zhfO2JLxq3?utm_source=generator",
+                desc: "",
+                desc_link: "",
+                genius_link: ""
+                }
+                
+                
+            },
+            {id:'8', path: '/images/aphex-twin.jpg', data: 
+                {
+                title: "#3", 
+                artist: "Aphex Twin", 
+                album: "Selected Ambient Works Volume II", 
+                embed_link: "https://open.spotify.com/embed/track/2Bc4llhjJBW77I552RgA3L?utm_source=generator",
+                desc: "",
+                desc_link: "",
+                genius_link: ""
+                }
+                
+                
+            },
+            {id:'9', path: '/images/tyler-the-creator.webp', data: 
+                {
+                title: "Garden Shed", 
+                artist: "Tyler, The Creator", 
+                album: "Flower Boy", 
+                embed_link: "https://open.spotify.com/embed/track/6ACiYjq5Q7e6BlhZEHz7cd?utm_source=generator",
+                desc: "",
+                desc_link: "",
+                genius_link: ""
+                }
+                
+            }
+            
         ],
         1: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
-        ],
-        2: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
-        ],
-        3: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
-        ],
-        4: [
-            {path: '/images/quantum.jpg', id:'0', article_link: 'www.google.com'},
-            {path: '/images/earth.jpg', id:'1', article_link: 'www.google.com'},
-            {path: '/images/milky-way.png', id:'2', article_link: 'www.google.com'},
-            {path: '/images/mountains.jpg', id:'3', article_link: 'www.google.com'},
-            {path: '/images/apple.png', id:'4', article_link: 'www.google.com'}
-        ],
-
-    }
+            {id:'0', path: '/images/blonde-frank-ocean.webp', data: 
+                {
+                title: "Nikes", 
+                artist: "Frank Ocean", 
+                album: "Blonde", 
+                embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator",
+                desc: "",
+                desc_link: "",
+                genius_link: ""
+                }
+            },
+            {id:'1', path: '/images/blonde-frank-ocean.webp', data: 
+                {
+                title: "Nikes", 
+                artist: "Frank Ocean", 
+                album: "Blonde", 
+                embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"
+                }
+            },
+            {id:'2', path: '/images/blonde-frank-ocean.webp', data: 
+                {
+                title: "Nikes", 
+                artist: "Frank Ocean", 
+                album: "Blonde", 
+                embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"
+                }
+            },
+            {id:'3', path: '/images/blonde-frank-ocean.webp', data: 
+                {
+                title: "Nikes", 
+                artist: "Frank Ocean", 
+                album: "Blonde", 
+                embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"
+                }
+            },
+            {id:'4', path: '/images/blonde-frank-ocean.webp', data: 
+                {
+                title: "Nikes", 
+                artist: "Frank Ocean", 
+                album: "Blonde", 
+                embed_link: "https://open.spotify.com/embed/album/5TkaDC4mYSLBvdG6UrIB0v?utm_source=generator"
+                }
+            },
+        ]
+    }   
 
     let currentArticle = -1
 
@@ -75,7 +210,7 @@
         width: 100vw;
         height: 100vh;
         overflow-x: hidden;
-        
+        animation: fallIn 3s;
     }
 
     .main-inner{
@@ -123,6 +258,7 @@
         grid-row-start: 2;
         grid-row-end: 12;
         z-index: 101;
+        animation: fallIn 5s;
     }
 
     .main-catagory-list-inner{
@@ -178,6 +314,8 @@
         width: 100%;
         height: 100%;
         overflow-x: scroll;
+        align-items: center;
+        justify-content: center;
         
     }
 
@@ -214,6 +352,18 @@
             height: 0;
         }100%{
             height: 100%;
+            opacity: 100%;
+        }
+    }
+
+    @keyframes fallIn{
+        0%{
+            opacity: 0%;
+        }
+        50%{
+            opacity: 0%;
+        }
+        100%{
             opacity: 100%;
         }
     }
@@ -267,6 +417,7 @@
     }
 
 
+
 </style>
 
 <div class="main-hero-container">
@@ -284,24 +435,15 @@
             {#if currentArticle < 0}
             <div class="main-hero" out:fade|local={{duration: 500}}>
                 <div class="inner-hero" >
-                    {#each articles[currentCatagory] as {path, id, article_link}}
-                        <HeroCard bind:currentArticle={currentArticle} currentCatagory={currentCatagory} path={path} id={id} article_link={article_link}></HeroCard>
+                    {#each articles[currentCatagory] as {id, path, data}}
+                        <HeroCard bind:currentArticle={currentArticle} id={id} path={path} data={data}></HeroCard>
                     {/each}
                 </div>
             </div>
             {:else}
             <div class="main-hero" out:fade|local={{duration: 500}}>
                 <div class="inner-hero">
-                    <div class="article-body">
-                        <iframe style="border-radius:12px" title="spotify embed" src={articles[currentCatagory][currentArticle].embed_link} width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                        <div>
-                            {articles[currentCatagory][currentArticle].id}
-                        </div>
-                        <!-- svelte-ignore a11y-click-events-have-key-events -->
-                        <div class="article-back-button" on:click={() => {currentArticle = -1 * Math.random()}}>
-                            +--
-                        </div>
-                    </div>
+                    <Article bind:currentArticle={currentArticle} id={articles[currentCatagory][currentArticle].id} path={articles[currentCatagory][currentArticle].path} data={articles[currentCatagory][currentArticle].data}></Article>
                 </div>
             </div>
             {/if}
